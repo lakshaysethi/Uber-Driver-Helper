@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF_8">
+    <meta http_equiv="X_UA_Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device_width, initial_scale=1.0">
+    <title>Uber driver helper</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384_EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <button   >NEW SHIFT</button>
+        <div class="row">
+
+            <div class='col-sm-9 col-md-6 col-sm-9 col-md-6'  id="start_time">
+                <h3>What time did you start?</h3>
+                <button id = 'plus_btn'>+</button>
+                <span><h2 id='time_start_text'   style = 'display: inline;'>00:00</h2></span>
+                <button id = 'minus_button'  >_</button>
+            </div>
+            <br>
+            <div class='col-sm-9 col-md-6 '  id="time_now">
+                <h3 >Time now is </h3>
+                <span><h2 id = 'time_now_text' style = 'display: inline;'>00:00</h2></span>
+                
+            </div>
+            <div class='col-sm-9 col-md-6 '  >
+                <h3>total shift  time  =  </h3>
+                <span><h2  id="total_shift_time" style = 'display: inline;'>00:00</h2></span>
+                
+            </div>
+            <div class='col-sm-9 col-md-6 '  id="total_shift_earning">
+                <h3>this shift total Earnings:   </h3>
+                <span><h2 style = 'display: inline;'>$230 </h2></span>
+                
+            </div>
+            <div class='col-sm-9 col-md-6 '  id="add_earning">
+                <h3>Add new Earning:  </h3>
+                <button>5</button>
+                <button>6</button>
+                <button>7</button>
+                <button>8</button>
+                <button>9</button>
+                <br> <br>
+                <button>10</button>
+                <button>11</button>
+                <button>12</button>
+                <button>14</button>
+                <button>15</button>
+                <button>16</button>
+                <button>17</button>
+                <button>18</button>
+                <button>19</button>
+                <br> <br>
+                <button>20</button>
+                <button>21</button>
+                <button>22</button>
+                <button>23</button>
+                <button>24</button>
+                <button>25</button>
+                <input type="text" placeholder="Custom earning">
+                
+                
+            </div>
+            <div class='col-sm-9 col-md-6 '  id="Stats">
+                <span><h2 style = 'display: inline;'> Average per hour:  </h2></span>
+                <br>
+                <br>
+                <br>
+                <span><h2 style = 'display: inline;'> your hour by hour rate :</h2></span>
+                <span><h2 style = 'display: inline;'> start _ s+1h = 25$/hr</h2></span>
+                <span><h2 style = 'display: inline;'> s+1 to S+2 = 26$/hr</h2></span>
+                <span><h2 style = 'display: inline;'> s+2 to S+3 = 33$/hr</h2></span>
+                
+            </div>
+            
+
+        </div>
+
+    </div>
+
+    <script>
+        // const time_start_text
+        // const plus_button
+        // const minus_button
+        
+        const time_now_text = document.getElementById('time_now_text')
+        const time_start_text = document.getElementById('time_start_text')
+        const total_shift_time = document.getElementById('total_shift_time')
+        const timeInterval = setInterval(getTimeNow,1000)
+        let timestarted = new Date();
+        time_start_text.innerText = (()=>{ return timestarted.toString().slice(16,24)})()
+        
+        function  getTimeNow  () {
+            let now = new Date()
+            now_s = now.toString()
+            time_now_text.innerText = now_s.slice(16,24)
+            const diffTime = Math.abs(now - timestarted);
+            const diffHours =  Math.ceil(diffTime / (1000 * 60 * 60 ))%24
+            const diffmins =  Math.ceil(diffTime / (1000 * 60  ))%60
+            const diffSeconds =  (Math.ceil(diffTime / (1000 ))%60); 
+            total_shift_time.innerText = (diffHours-1)+"H"+(diffmins-1)+"Min"+diffSeconds +"s"
+
+        }
+
+        
+
+
+    </script>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+ 
