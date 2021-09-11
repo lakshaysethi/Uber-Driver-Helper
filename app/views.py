@@ -2,7 +2,7 @@ from django.shortcuts import render
 import csv,codecs
 from datetime import datetime,timedelta
 # Create your views here.
-DAYNAMES = [None, "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+DAYNAMES = [ "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 def home(request):
     ctx = {}
 
