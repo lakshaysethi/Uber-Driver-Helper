@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-poiz22ctbo3zb#i&9w5q6=xxxr#=@r@=^#&0n4!^zgci4km0b1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost','uber-driver-hourlyrate.herokuapp.com']
 
 
 # Application definition
