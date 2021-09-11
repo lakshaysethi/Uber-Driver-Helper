@@ -32,8 +32,14 @@ def process(data) :
         from_time = min_time +timedelta(hours=i)
         to_time = min_time +timedelta(hours=i+1)
         earned = get_earned_between_hours(from_time, to_time,data)
-        time_str = f'{from_time} to {to_time} you made \n {earned/100}'
-        good_data_aray.append(time_str)
+        time_str = f'{from_time}   to   {to_time} ->  {earned/100}'
+        if earned > 0:
+            if earned > 2000:
+                time_str += '  above minimum wage' 
+            elif earned < 1700:
+                time_str += ' BAD'
+
+            good_data_aray.append(time_str)
     return good_data_aray 
 
     # for tupple in data:
@@ -47,7 +53,9 @@ def get_earned_between_hours(from_time, to_time,data) -> int:
     for tupple in data:
         time = datetime.strptime(tupple[1], '%Y-%m-%dT%H:%M:%S+12:00') 
         if time < to_time and time > from_time:
-            earned += int(float(tupple[0])*100)
+            if float(tupple[0])>float(0.00):
+                earned += int(float(tupple[0])*100)
+            
     return earned
 
 
