@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uber driver helper</title>
+</head>
+
+<style>
+    .upload-area{
+        padding: 50px;
+        border: 1px solid;
+    }
+</style>
+
+<body>
+
+
+    please upload your payments csv file from <a href="driver.uber.com">uber driver portal</a>  here:
+    <br>
+    <br>
+    <br>
+    
+    <form method="post"  enctype="multipart/form-data">
+    {% csrf_token %} 
+        <input required type="file" name='csv' class="upload-area" value="click here to upload"  accept=".csv">
+        <br>
+    
+        <input type="submit" value="Show me my hourly rates">
+    </form>
+    
+    
+    
+    
+</body>
+</html>
