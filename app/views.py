@@ -57,14 +57,14 @@ def get_earned_between_hours(from_time, to_time,data) -> int:
     earned = 0
     for tupple in data:
         try:
-        	time = datetime.strptime(tupple[1], '%Y-%m-%dT%H:%M:%S+13:00') 
-       	except ValueError:
+            time = datetime.strptime(tupple[1], '%Y-%m-%dT%H:%M:%S+13:00') 
+        except ValueError:
 		
-		time = datetime.strptime(tupple[1], '%Y-%m-%dT%H:%M:%S+12:00') 
+            time = datetime.strptime(tupple[1], '%Y-%m-%dT%H:%M:%S+12:00') 
 
-		if time < to_time and time > from_time:
-            		if float(tupple[0])>float(0.00):
-                		earned += int(float(tupple[0])*100)
+        if time < to_time and time > from_time:
+            if float(tupple[0])>float(0.00):
+                earned += int(float(tupple[0])*100)
             
     return earned
 
