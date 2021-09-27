@@ -24,7 +24,7 @@ def home(request):
 
 def process(data) :
     """takes tupples and returns hourly income array of tupples """
-    max_time = datetime.strptime(data[len(data)-1][1], '%Y-%m-%dT%H:%M:%S+12:00') 
+    max_time = datetime.strptime(data[len(data)-1][1], '%Y-%m-%dT%H:%M:%S+13:00') 
     min_time = datetime.strptime(data[1][1], '%Y-%m-%dT%H:%M:%S+12:00')
     good_data_aray = []
     total = 0
