@@ -25,7 +25,7 @@ def home(request):
 def process(data) :
     """takes tupples and returns hourly income array of tupples """
     max_time = datetime.strptime(data[len(data)-1][1], '%Y-%m-%dT%H:%M:%S+13:00') 
-    min_time = datetime.strptime(data[1][1], '%Y-%m-%dT%H:%M:%S+12:00')
+    min_time = datetime.strptime(data[1][1], '%Y-%m-%dT%H:%M:%S+13:00')
     good_data_aray = []
     total = 0
     number_of_hours_between_max_and_min_time = int((max_time - min_time ).total_seconds()/3600)
@@ -56,7 +56,7 @@ def get_earned_between_hours(from_time, to_time,data) -> int:
     """Returns dollar int earned   """
     earned = 0
     for tupple in data:
-        time = datetime.strptime(tupple[1], '%Y-%m-%dT%H:%M:%S+12:00') 
+        time = datetime.strptime(tupple[1], '%Y-%m-%dT%H:%M:%S+13:00') 
         if time < to_time and time > from_time:
             if float(tupple[0])>float(0.00):
                 earned += int(float(tupple[0])*100)
